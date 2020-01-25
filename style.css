@@ -1,0 +1,123 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.2rem;
+    background-color: #020b1c;
+    color: #dddddd;
+}
+
+a {
+    color: #ff925f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ff88ac;
+}
+
+h1, h2 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin-top: 0.3em;
+    text-shadow: 0 0.1em 0.1em gray;
+    color: white;
+}
+
+h1 #title-emphasis {
+    color: #ff8888
+}
+
+#guide, #options {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2em;
+    display: none;
+    box-sizing: border-box;
+    max-height: 100%;
+    line-height: 1.5;
+    overflow-y: auto;
+}
+
+#guide h2, #options h2 {
+    margin-top: 0;
+}
+
+#guide {
+    position: absolute;
+    right: 0;
+    max-width: 50%;
+    width: 40em;
+}
+
+#options {
+    position: absolute;
+    right: 0;
+}
+
+#options input {
+    width: 3em;
+}
+
+#options ul {
+    padding: 0;
+    margin: 0;
+}
+
+#options li {
+    list-style-type: none;
+    margin: 0.5em 0;
+}
+
+#buttons {
+    position: absolute;
+}
+
+#buttons button {
+    margin-top: 1em;
+    margin-left: 1em;
+    background: linear-gradient(to top, black, #07284d);
+    border: 1.5px solid #999999;
+    color: white;
+    padding: 0.6em;
+    outline: none;
+}
+
+#buttons button:hover {
+    background: linear-gradient(to top, #07354b, #17618b);
+    cursor: pointer;
+}
+
+#container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+#game-container {
+    width: 100%;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#mine-counter {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #c7b28c;
+    font-size: 4vh;
+    vertical-align: middle;
+}

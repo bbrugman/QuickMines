@@ -1,0 +1,70 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>QuickMines</title>
+        <meta name="description" content="QuickMines: a Minesweeper-like with less tedium">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:700|Public+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="container">
+            <h1><span id="title-emphasis">Quick</span>Mines</h1>
+            <div id="guide">
+                <h2>Help</h2>
+                <p>QuickMines is a lot like <a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)">Minesweeper</a>, except it handles the trivial part of the game for you, leaving only harder deductions and guesses for you to make.</p>
+                <p>The controls are:</p>
+                <ul>
+                    <li>Left-click an unopened cell to open it. If the cell contains a mine, you lose. Open all empty cells to win.</li>
+                    <li>Right-click an unopened cell to "flag" it (i.e. label it as a known mine location).</li>
+                </ul>
+                <p>Whenever an opened cell has as many unopened cells adjacent to it as its number (these must all have mines), QuickMines will automatically flag all of these unopened cells. Whenever an opened cell has as many flagged cells adjacent to it as its number, QuickMines will automatically open all adjacent unflagged cells (this is known as "chording" because it usually occurs as the result of clicking an opened cell with both mouse buttons simultaneously). This may suffice to instantly solve easy boards.</p>
+                <p>Note that the "automatic chording" may open a cell with a mine, and thus cause the game to be lost, if you flag a cell incorrectly.</p>
+            </div>
+            <div id="options">
+                <h2>Options</h2>
+                <ul>
+                    <li><label for="difficulty">Difficulty: </label>
+                        <select name="difficulty" id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard" selected>Hard</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </li>
+                    <li><label for="custom-width">Custom Width: </label><input type="number" name="custom-width" id="custom-width" value="30"></li>
+                    <li><label for="custom-height">Custom Height: </label><input type="number" name="custom-height" id="custom-height" value="16"></li>
+                    <li><label for="custom-mines">Custom Mine Count: </label><input type="number" name="custom-mines" id="custom-mines" value="120"></li>
+                </ul>
+            </div>
+            <div id="buttons">
+                <button id="options-button">Options</button>
+                <button id="help-button">Help</button>
+            </div>
+            <div id="game-container">
+                <canvas id="game-canvas"></canvas>
+            </div>
+            <p id="mine-counter"></p>
+        </div>
+        <script src="main.js"></script>
+        <script>
+            "use strict";
+
+            const help_button = document.querySelector("#help-button");
+            const options_button = document.querySelector("#options-button");
+            const help_div = document.querySelector("#guide");
+            const options_div = document.querySelector("#options");
+            
+            options_button.addEventListener("click", function(e) {
+                options_div.style.display = options_div.style.display !== "block" ? "block" : "none";
+                help_div.style.display = "none";
+            });
+
+            help_button.addEventListener("click", function(e) {
+                help_div.style.display = help_div.style.display !== "block" ? "block" : "none";
+                options_div.style.display = "none";
+            });
+        </script>
+    </body>
+</html>
