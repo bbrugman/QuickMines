@@ -31,6 +31,7 @@ h1 {
     margin-top: 0.3em;
     text-shadow: 0 0.1em 0.1em gray;
     color: white;
+    grid-row: 1;
 }
 
 h1 #title-emphasis {
@@ -97,15 +98,15 @@ h1 #title-emphasis {
 }
 
 #container {
-    display: flex;
-    flex-flow: column;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     height: 100%;
 }
 
 #game-container {
-    width: 100%;
-    flex: 1 1 auto;
+    grid-row: 2;
     text-align: center;
+    min-height: 0;
 }
 
 canvas {
@@ -114,6 +115,7 @@ canvas {
 }
 
 #mine-counter {
+    grid-row: 3;
     margin: 0;
     text-align: center;
     font-weight: bold;
